@@ -7,6 +7,7 @@
       :itemsPerPage="itemsPerPage"
       :getResourceList="getResourceList"
       :getResourceItem="getResourceItem"
+      :downloadFileName="downloadFileName"
     />
   </div>
 </template>
@@ -23,7 +24,8 @@ export default {
       pagesNo: 112,
       itemIdPropertyKey: 'url',
       namePropertyKey: 'name',
-      itemsPerPage: 10
+      itemsPerPage: 10,
+      downloadFileName: 'pokemons-data'
     }
   },
   methods: {

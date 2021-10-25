@@ -6,6 +6,7 @@
       :namePropertyKey="namePropertyKey"
       :getResourceList="getPeopleList"
       :getResourceItem="getResourceItem"
+      :downloadFileName= "downloadFileName"
     />
   </div>
 </template>
@@ -22,6 +23,7 @@ export default {
       pagesNo: 9,
       itemIdPropertyKey: 'url',
       namePropertyKey: 'name',
+      downloadFileName: 'star-wars-data'
     }
   },
   methods: {

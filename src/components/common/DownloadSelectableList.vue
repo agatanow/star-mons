@@ -32,6 +32,7 @@
     <DownloadPanel
       :downloadItemsNo="downloadItemsIds.size"
       :getDownloadData="getDownloadData"
+      :downloadFileName="downloadFileName"
     />
     <Loading :visible="loading"/>
   </div>
@@ -54,7 +55,8 @@ export default {
     namePropertyKey: String,
     pagesNo: Number,
     getResourceList: Function,
-    getResourceItem: Function
+    getResourceItem: Function,
+    downloadFileName: String
   },
   data() {
     return {
@@ -98,12 +100,12 @@ export default {
       this.selectAllCheckboxValue = Object.values(this.listValues).every(item => item === true);
       this.loading = false;
     },
-    getDownloadData() {
-      let res = {};
-      this.downloadItemsIds.forEach(async el => {
+    async getDownloadData() {
+      let res = [];
+      await Promise.all(Array.from(this.downloadItemsIds).map(async el => {
         const itemData = await this.getResourceItem(el);
-        res[itemData[this.namePropertyKey]] = itemData;
-      })
+        res.push(itemData)
+      }));
       return res;
     }
   }

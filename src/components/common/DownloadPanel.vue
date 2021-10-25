@@ -12,13 +12,14 @@
           </button>
         </div>
         <div v-if="fileGenerationCompleted">
-          file generated!
-          <button
-            @click="closePopUp"
-            class="download-panel__btn"
-          >
-            download 
-          </button>
+          <p>file generated!</p>
+          <a 
+            class="download-panel__link"
+            :href="jsonDataEncoded"
+            :download="`${downloadFileName}.json`"
+            >
+            Download
+          </a>
         </div>
         <div v-else-if="downloadItemsNo">
           Items to download: {{ downloadItemsNo }} <br/>
@@ -49,12 +50,14 @@ export default {
   components: { Loading },
   props: {
     downloadItemsNo: Number,
-    getDownloadData: Function
+    getDownloadData: Function,
+    downloadFileName: String
   },
   data() {
     return {
       isPopUpOpened: false,
       fileGenerationCompleted: false,
+      jsonDataEncoded: ""
     }
   },
   methods: {
@@ -65,7 +68,7 @@ export default {
     async openPopUp() {
       this.isPopUpOpened = true;
       const response = await this.getDownloadData();
-      console.log(JSON.stringify(response));
+      this.jsonDataEncoded = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(response));
       this.fileGenerationCompleted = true;
     }
   }
@@ -124,6 +127,12 @@ export default {
   &__loading-wrapper {
     position: relative;
     height: 70px;
+  }
+  &__link {
+    text-decoration: none;
+    &:hover, &:focus {
+      color:pink;
+    }
   }
 }
 </style>
