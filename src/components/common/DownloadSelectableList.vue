@@ -11,7 +11,6 @@
         <label> Select all </label>
       </div>
       <Pagination
-        :currentPage="currentPage"
         :pagesNo="pagesNo"
         :neighborPagesNo="3"
         v-on:selectPage="loadPage"
@@ -62,14 +61,13 @@ export default {
     return {
       list: [],
       listValues: {},
-      currentPage: 1,
       downloadItemsIds: new Set(),
       selectAllCheckboxValue: false,
       loading: false,
     }
   },
   async mounted() {
-    await this.loadPage(this.currentPage);
+    await this.loadPage(1);
   },
   methods: {
     selectItem(id, value) {
@@ -92,7 +90,6 @@ export default {
     async loadPage(pageNo) {
       this.loading = true;
       const res = await this.getResourceList(pageNo);
-      this.currentPage = pageNo;
       this.list = res.results;
       this.listValues = this.list.reduce((obj, item) => 
         (obj[item[this.itemIdPropertyKey]] = this.downloadItemsIds.has(item[this.itemIdPropertyKey]), obj), {}

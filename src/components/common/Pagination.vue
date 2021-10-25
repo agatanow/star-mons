@@ -16,25 +16,27 @@
 export default {
   name: 'Pagination',
   props: {
-    currentPage: Number,
+    // currentPage: Number,
     pagesNo: Number,
     neighborPagesNo: Number,
   },
   data() {
     return {
+      currentPage: 1,
       visiblePages: [],
       lowerBoundDotsVisible: false,
       upperBoundDotsVisible: false
     }
   },
-  async mounted() {
+  mounted() {
     this.updatePages(this.currentPage);
   },
   methods: {
     updatePages(pageNo){
+      this.currentPage = pageNo;
       const lowerBound = Math.max(pageNo - this.neighborPagesNo, 2);
-      const upperBound = Math.min(pageNo + this.neighborPagesNo, this.pagesNo);
-      const neighborPages = Array.from(new Array(upperBound-lowerBound), (x, i) => i + lowerBound);
+      const upperBound = Math.min(pageNo + this.neighborPagesNo + 1, this.pagesNo);
+      const neighborPages = Array.from(new Array(upperBound - lowerBound), (x, i) => i + lowerBound);
       this.visiblePages = [1, ...neighborPages, this.pagesNo];
       this.lowerBoundDotsVisible = lowerBound > 2;
       this.upperBoundDotsVisible = upperBound < this.pagesNo - 1;
