@@ -11,8 +11,8 @@ describe('DownloadPanel.vue', () => {
             propsData: {
                 downloadItemsNo: 0,
                 getDownloadData: () => {
-
-                    return new Promise((resolve, reject) => {
+                  /*eslint-disable no-unused-vars*/
+                    return new Promise((resolve, _) => {
                         resolve([
                         {
                             name: "Dinosaur",
