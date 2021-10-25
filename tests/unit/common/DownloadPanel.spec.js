@@ -49,6 +49,7 @@ describe('DownloadPanel.vue', () => {
   });
 
   it('generates a downloadable json link', async () => {
+    await wrapper.setProps({ downloadItemsNo: 15 });
     await wrapper.find('.download-panel__btn').trigger('click', {});
     expect(wrapper.find('.download-panel__link').exists()).toBe(false);
     await localVue.nextTick();
