@@ -15,7 +15,7 @@ export default {
 .navigation-bar {
   position: sticky;
   top: 0;
-  width: 100%;
+  z-index: 5;
   background:black;
   padding: 10px;
   a{
