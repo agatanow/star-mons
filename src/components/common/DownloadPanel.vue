@@ -11,7 +11,10 @@
             &times;
           </button>
         </div>
-        <div v-if="fileGenerationCompleted">
+        <div v-if="!downloadItemsNo">
+          There are no selected items to download yet
+        </div>
+        <div v-else-if="fileGenerationCompleted">
           <p>file generated!</p>
           <a 
             class="download-panel__link"
@@ -21,15 +24,12 @@
             Download
           </a>
         </div>
-        <div v-else-if="downloadItemsNo">
+        <div v-else>
           Items to download: {{ downloadItemsNo }} <br/>
           Generating file...
           <div class="download-panel__loading-wrapper">
             <Loading :visible="true"/>
           </div>
-        </div>
-        <div v-else>
-          There are no items to download yet
         </div>
       </div>
     </div>
