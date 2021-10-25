@@ -81,7 +81,7 @@ export default {
   &__pop-up {
     width: 100vw;
     height: 100vh;
-    background: rgba(0,0,0,0.6);
+    background: $--black-semi-transparent;
     position: fixed;
     top: 0;
     left: 0;
@@ -89,7 +89,7 @@ export default {
     align-items:center;
     justify-content: center;
     &__content {
-      background: white;
+      background: $--white;
       padding: 20px;
       border-radius: 20px;
       width: 80%;
@@ -106,10 +106,10 @@ export default {
     padding: 10px 20px;
     border-radius: 20px;
     border: none;
-    color: white;  
+    color: $--white;  
     text-align: center;
     text-transform: uppercase; 
-    background-image: linear-gradient(to right, #DA22FF 0%, #9733EE  51%, #DA22FF  100%);
+    background-image: $--gradient;
     transition: 0.5s;
     background-size: 200% auto;
     &:hover {
@@ -131,7 +131,7 @@ export default {
   &__link {
     text-decoration: none;
     &:hover, &:focus {
-      color:pink;
+      color: $--pink;
     }
   }
 }

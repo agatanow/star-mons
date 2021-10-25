@@ -23,7 +23,7 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(255,255,255,0.7);
+  background: $--white-semi-transparent;
 
   &__spinner::after {
     content: '';
@@ -33,7 +33,7 @@ export default {
     position: absolute;
     top: calc(50% - 15px);
     left: calc(50% - 15px);
-    border: 5px solid pink;
+    border: 5px solid $--pink;
     border-right: 5px solid transparent;
     animation: spinner 1s linear infinite;
   }

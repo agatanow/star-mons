@@ -23,6 +23,6 @@ body {
   margin: 0;
 }
 .content-wrapper {
-  padding:20px;
+  padding: 20px;
 }
 </style>

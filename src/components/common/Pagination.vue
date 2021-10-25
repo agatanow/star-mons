@@ -68,18 +68,18 @@ export default {
     order: 99999;
   }
   &__btn {
-    background: #fff;
+    background: $--white;
     border: none;
     cursor: pointer;
     border-radius: 34px;
     width: 34px;
     height: 34px;
     &:hover, &:focus {
-      color: pink;
+      color: $--pink;
     }
     &--active {
-      background: #000;
-      color:white;
+      background: $--black;
+      color: $--white;
     }
   }
 }

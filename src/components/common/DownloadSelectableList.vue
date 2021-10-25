@@ -124,7 +124,7 @@ export default {
     margin: 5px 0;
     li {
       padding: 10px;
-      background: #f3f3f3;
+      background: $--light-gray;
       margin-bottom: 5px;
       border-radius: 20px;
     }

@@ -16,14 +16,14 @@ export default {
   position: sticky;
   top: 0;
   z-index: 5;
-  background:black;
+  background: $--black;
   padding: 10px;
-  a{
+  a {
     padding: 0 10px;
-    color:white;
+    color: $--white;
     text-decoration: none;
     &:hover, &:focus {
-      color:pink;
+      color: $--pink;
     }
   }
 }
